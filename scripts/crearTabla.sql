@@ -7,3 +7,8 @@ CREATE TABLE IF NOT EXISTS test.estudiantes (
 	fechaNacimiento DATE NOT NULL,
 	CONSTRAINT estudiantes_PK PRIMARY KEY (id)
 );
+
+INSERT INTO estudiantes VALUES
+('','Erik', 'Fideos', '2001-07-27'),
+('','Emiliano','Ravioles','2002-09-26'),
+('','Matias','Ñoquis','2002-09-16');
