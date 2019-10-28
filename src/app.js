@@ -1,14 +1,20 @@
 var express = require('express');
 var connection = require('./connection');
+var exphbs  = require('express-handlebars');
 
 var app = express();
 
 app.get('/', function(req, res) {
-  res.send('¡Hola ET 35!');
+  res.render('home', { 
+    mensaje: '¡Hola ET 35!', 
+    texto: 'Esto también sale del servidor',
+    fecha: new Date()
+  });
 });
 
 app.get('/query', function(req, res) {
-  connection.query('SELECT * FROM test.estudiantes', function (error, results, fields) {
+  connection.query('SELECT ' + req.query.campos + ' FROM test.estudiantes', 
+  function (error, results, fields) {
     if (error) throw error;
     res.json(results);
   });
