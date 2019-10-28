@@ -4,6 +4,10 @@ var exphbs  = require('express-handlebars');
 
 var app = express();
 
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
 app.get('/', function(req, res) {
   res.render('home', { 
     mensaje: '¡Hola ET 35!', 
