@@ -1,7 +1,63 @@
-<h1>
-  {{ mensaje }}
-</h1>
+<style>
+  #div-1{
+    text-align: right;
+    margin-right: 5px;
+  }
 
-<h2>Hoy es {{ fecha }}</h2>
+  #div-2{
+    margin-left: 200px;
+  }
 
-<p>Esto está fijo, pero bien podría salir del servidor. Para lxs usuarixs es transparente, no ven de dónde salió.</p>
+  #ta{
+    border-radius: 10px;
+    background-color: black;
+    color: aqua;
+  }
+
+  ::placeholder {
+    color: aquamarine; 
+  }
+</style>
+
+
+<form action="/" method="post">
+  <textarea id="ta" name="consulta" rows="10" cols="100" placeholder="Escriba la consulta SQL:"></textarea>
+  <div id="div-1">
+    <input id="btn-1" type="submit" value="Enviar">
+  </div>
+  
+</form>
+</br>
+<div id='div-2'>
+  <table>
+  <thead>
+    <tr>
+      <th>Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+      <th>Nombre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th> 
+      <th>ComidaPreferida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>FechaNacimiento&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Erik</td>
+      <td>Fideos</td>
+      <td>2001-07-27</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Emiliano</td>
+      <td>Ravioles</td>
+      <td>2002-09-26</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Matías</td>
+      <td>Ñoquis</td>
+      <td>2002-09-16</td>
+    </tr>
+  </tbody>
+</table>
+</div>

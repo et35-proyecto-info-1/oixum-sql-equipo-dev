@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/query', function(req, res) {
-  connection.query('SELECT ' + req.query.campos + ' FROM test.estudiantes', 
+  connection.query('SELECT * FROM test.estudiantes', 
   function (error, results, fields) {
     if (error) throw error;
     res.json(results);
