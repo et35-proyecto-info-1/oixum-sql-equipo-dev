@@ -1,6 +1,7 @@
 var express = require('express');
 var connection = require('./connection');
 var exphbs  = require('express-handlebars');
+var path = require('path');
 
 var app = express();
 
