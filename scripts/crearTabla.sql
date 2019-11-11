@@ -12,4 +12,7 @@ INSERT INTO test.estudiantes VALUES
 ('','Erik','Fideos','2001-07-27'),
 ('','Emiliano','Ravioles','2002-09-26'),
 ('','Matias','Ñoquis','2002-09-16'),
-('','Alexander','Hamburgesa','2001-06-01');
+('','Alexander','Hamburgesa','2001-06-01'),
+('','Juan','Asado','1999-02-25');
+
+

@@ -11,11 +11,7 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 app.get('/', function(req, res) {
-  res.render('home', { 
-    mensaje: '¡Hola ET 35!', 
-    texto: 'Esto también sale del servidor',
-    fecha: new Date()
-  });
+  res.render('home')
 });
 
 app.get('/query', function(req, res) {
@@ -30,13 +26,16 @@ app.post('/', function(req, res){
   const query = req.body.consulta;
   connection.query(query, function(error, results, fields){
     res.render('home',{
-      resultados: JSON.stringify(results),
-      columnas: JSON.stringify(fields),
+      resultados: results,
+      columnas: fields,
       error: error,
       query: query
     });
   });
 });
+
+
+
 
 app.listen(3000, function() {
   connection.connect();
