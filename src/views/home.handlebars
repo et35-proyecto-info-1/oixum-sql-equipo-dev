@@ -71,39 +71,14 @@
 <form action="/" method="post">
   <textarea id="text-a" name="consulta" rows="10" cols="100" placeholder="Escriba la consulta SQL:">{{ query}}</textarea>
   <div id="div-1">
-    <input id="btn-1" type="submit" value="ENVIAR">
+    <input id="btn-1" type="submit" value="ENVIAR" href="#table">
   </div>
   
 </form>
+
 </br>
 
-<!--
-{{#if resultados}}
-<h3 id="h3-res">Resultados :)</h3>
-<code>{{ resultados }}</code>
-{{/if}}
-
-{{#if error}}
-<h3 id="h3-err">Error :(</h3>
-<code>{{ error }}</code>
-{{/if}}-->
-
-
-
-<!--
-<h3 id="h3-res">Resultados :)</h3>
-
-
-{{#if error}}
-<h3 id="h3-err">Error :(</h3>
-<code>{{ error }}</code>
-{{/if}}-->
-
 <style>
-  table
-  {
-    width: 100%;
-  }
 
   table, th, td 
   {
@@ -122,26 +97,47 @@
   }
 </style>
 
-<table>
-  <thead>
-    <tr>
-        {{#each columnas}}
-        <th>{{this.name}}</th>
-        {{/each}}
-    </tr>
+{{#if error}}
+<div class="cajaError">
+{{!-- <h1 class="msjError">Error</h1> --}}
+<h3 id="h3-err">{{ error }}</h3>
+</div>
+{{/if}}
+
+{{#if resultados}}
+<div class="cajaResultados">
+
+<h3 id="h3-res">Resultados</h3>
+<!--<code>{{ resultados }}</code>-->
+<center>
+<table id="table">
+  <thead class='head'>
+    {{#each columnas}}
+      {{#if this.name}}
+      <td>{{this.name}}</td>
+      {{/if}}
+    {{/each}}
   </thead>
-  <tbody>
-     {{#each resultados}}
-
-            <tr>
-
-                <td>{{this.id}}</td>
-                <td>{{this.nombre}}</td>
-                <td>{{this.comidaPreferida}}</td>
-                <td>{{this.fechaNacimiento}}</td>
-            </tr>
-
-        {{/each}}
-
+  <tbody class='body'>
+    {{#each resultados}}
+    <tr>
+        {{#if this.id}}
+        <td>{{this.id}}</td>
+        {{/if}}
+        {{#if this.nombre}}
+        <td>{{this.nombre}}</td>
+        {{/if}}
+        {{#if this.comidaPreferida}}
+        <td>{{this.comidaPreferida}}</td>
+        {{/if}}
+        {{#if this.fechaNacimiento}}
+        <td>{{this.fechaNacimiento}}</td>
+        {{/if}}
+    </tr>
+    {{/each}}
   </tbody>
 </table>
+</center>
+
+</div>
+{{/if}}
