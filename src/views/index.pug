@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    style
+      include styles.css
+    body
+      h1(align="center") Ingrese La Consulta:
+      form.tabla(method='post' action='/' align='center')
+        textarea(name='query' placeholder='Ingrese Aqui:') #{query}
+        br
+        #div-btn
+          input(id='btn-1' type='submit' value='Enviar')
+
+      if (results)
+        br
+        h2(class="h2-res") Resultados :)
+        br
+        table( border="black" class="tabla" align="center" )
+          thead
+            each col in fields
+              th=col.name
+          tbody
+            each row in results
+              tr
+                each col in fields
+                  td=row[col.name]
+      if (error)
+        br
+        h2(class="h2-err") Error :(
+        br 
+        h2(class="h2-err") #{error}
